@@ -1,0 +1,24 @@
+from random import *
+
+num = randint(1, 100)
+print('Добро пожаловать в числовую угадайку')
+def is_valid(num):
+    return num.isdigit() and 1 <= int(num) <= 100
+count = 0
+while True:
+    n = input('Введите число от 1 до 100: ')
+    if is_valid(n) == False:
+        print('А может быть все-таки введем целое число от 1 до 100?')
+    else:
+        n = int(n)
+    if num > n:
+        count += 1
+        print('Ваше число меньше загаданного, попробуйте еще разок')
+    elif num < n:
+        count += 1
+        print('Ваше число больше загаданного, попробуйте еще разок')
+    elif num == n:
+        count += 1
+        print('Вы угадали, поздравляем!Вам потребовалось', count, 'попыток.')
+        print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
+        break
